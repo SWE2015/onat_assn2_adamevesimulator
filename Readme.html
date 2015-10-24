@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adam Eve Simulator</title>
+</head>
+<style type="text/css">
+	#page{
+		font-size: 12px;
+		line-height: 1.5em;
+		max-width: 800px;
+		margin: 20px auto 20px auto;
+		padding: 35px;
+		background-color: #ffffff;
+		border: 1px solid #dfdfdf;
+		border-radius: 10px;
+
+	}
+	body {
+		background-color: #efefef;
+	}
+
+	p{
+		text-indent: 2em;
+	}
+
+	.result{
+		line-height: 1.1em;
+		white-space: pre; 
+		border: 1px solid #cbcbcb;
+		border-radius: 15px;
+
+		margin: 20px;
+		padding: 15px;
+
+		font-family: Courier;
+		font-size: 0.9em;
+	}
+
+</style>
+<body>
+
+<div id="page">
+	
+<h1>Adam & Eve Simulator with Genomes</h1>
+<span>Onat Bas, SWE501, Assn 2</span>
+
+<h2>Implementation</h2>
+<p>This project is implemented in object oriented way.
+Each human is an instance of a Class called Human. Reproducing(mating) between
+humans are implemented using the techique used by natural crossover. 
+Each Human has a certain DNA, which can be represented as a n-byte long array.
+</p>
+<h3>DNA</h3>
+<p>DNA is handled by Genome class. This class is responsible for creating-allocating parts
+in the dna chain. This class will also provide the user an object through which the implementor
+can access to the data stored in the dna.</p>
+
+<h3>Human DNA</h3>
+<p>The structural human DNA is created-handled by the Class HumanGenome.
+At it's constructor, HumanGenome class allocates certain data types it's parent class, Genome.
+This class also keeps the access objects provided by Genome, so they can be accessed/altered
+at a later time. The data stored for a human are these: 
+</p>
+<ul>
+	<li>Gender (male/female)</li>
+	<li>Hair color (RGB)</li>
+	<li>Eye color (RGB)</li>
+	<li>Likely to weigh (kg)</li>
+	<li>Likely to be tall as(cm)</li>
+</ul>
+
+<h3>Human</h3>
+<p>Human, a child class of HumanGenome, has also a string field for name. New humans can be created
+by providing at least two parent Humans. By doing this, the child Human will obtain the dna 
+chains of it's parent and do cross-over on them and do simple modifications (which we call mutation)
+to create potentially not-existing features in parents. For example:
+</p>
+<div class="result">
+Parent 1' DNA string: 13_D@ ??+D?<br/>
+Parent 2' DNA string: ??_D? ??_DM<br/>
+Child's DNA string  : ??_DM ??+D?
+</div>
+<p>After new gene is created, new human can immediately obtain these new properties, which are 
+usually slightly different than it's parents. </p>
+
+<h2>Conclusion</h2>
+<h3>Population Limit</h3>
+<p>Even in a really small simulation such as this, one can observe the effect of restraining a population
+too much. In a very restricted population, in time, some genomes simply die off, disappear 
+from the gene pool, never to be seen again. After that a certain set of properties will
+simply dominate all the population, eliminating everyone that's different, resulting in a confined 
+population.</p>
+<p>Even though new genomes are created by Mutation, they still are minorities and 
+since we don't have a performance function implemented to increase the chance of mutants
+increase, they'll just die off again.</p>
+<h3>Generations</h3>
+<p>As generations pass, the diversity in the population also increase, making the gene pool richer
+and richer. The result of this is the number of mutations per birth is few. Producing a very 
+different dna/human requires many mutations, and that can only happen with a lot of mutations,
+thus more generations.  </p>
+
+<h3>Result</h3>
+<p>Usage:</p>
+<div class="result">
+<span>$ ./sampler <br/><span>
+<span>usage: ./sampler "birth_count" "population_limit"</span>
+</div>
+
+<p>Here's a sample output for 100000 generatios and 100 population size limit.</p>
+<div class="result">
+	$ ./sampler 10000 100
+
+<table>
+	
+	<tr><td>Adam</td><td>(Male)</td><td>183cm</td><td>65kg</tr></tr>
+<tr><td>Eve</td><td>(Female)</td><td>148cm</td><td>44kg</tr></tr>
+<tr><td></td></tr>
+<tr><td colspan="5">This is the final population (10000 generations, 100 people): <td></tr></tr>
+<tr><td>Darren</td><td>(Male)</td><td>203cm</td><td>196kg</tr></tr>
+<tr><td>Alfric</td><td>(Male)</td><td>146cm</td><td>84kg</tr></tr>
+<tr><td>Snowdon</td><td>(Female)</td><td>163cm</td><td>68kg</tr></tr>
+<tr><td>Smithies</td><td>(Male)</td><td>194cm</td><td>132kg</tr></tr>
+<tr><td>Darren</td><td>(Male)</td><td>139cm</td><td>132kg</tr></tr>
+<tr><td>Robbins</td><td>(Male)</td><td>137cm</td><td>8kg</tr></tr>
+<tr><td>Harrington</td><td>(Male)</td><td>139cm</td><td>196kg</tr></tr>
+<tr><td>.</td></tr>
+<tr><td>.</td></tr>
+<tr><td>.</td></tr>
+<tr><td>Huxley</td><td>(Male)</td><td>207cm</td><td>68kg</tr></tr>
+<tr><td>Gabriel</td><td>(Male)</td><td>139cm</td><td>192kg</tr></tr>
+<tr><td>Snowdon</td><td>(Male)</td><td>203cm</td><td>192kg</tr></tr>
+<tr><td>Smithies</td><td>(Male)</td><td>155cm</td><td>192kg</tr></tr>
+<tr><td>Crawford</td><td>(Female)</td><td>72cm</td><td>212kg</tr></tr>
+<tr><td>Clare</td><td>(Male)</td><td>235cm</td><td>206kg</tr></tr>
+<tr><td>Crawford</td><td>(Male)</td><td>147cm</td><td>64kg</tr></tr>
+<tr><td>Robbins</td><td>(Female)</td><td>202cm</td><td>224kg</tr></tr>
+</table>
+
+
+<h1>Sourcecode: </h1>
+
+<h2>Main</h2>
+
+<div class="result">
+	<h3>main.cxx</h3>
+#include <<span></span>iostream><br/>#include <<span></span>vector><br/>#include <<span></span>stdlib.h><br/>#include "Genome.hxx"<br/>#include "GeneEncapsulator.hxx"<br/>#include "Human.hxx"<br/>#include "HelperFunctions.hxx"<br/>#include <<span></span>fstream><br/>using namespace std;<br/><br/>int main(int argc, char const *argv[])<br/>{<br/>	if (argc <<span></span> 3)<br/>	{<br/>		cout <<span></span><<span></span> "usage: ./sampler <<span></span>birth_count> <<span></span>population_limit>" <<span></span><<span></span> endl;<br/>		return 0;<br/>	}<br/>	const int pop_limit = stoi(argv[2]);<br/>	const int birth_count = stoi(argv[1]);<br/><br/>	vector<<span></span>Human *> humans;<br/><br/>	Human *adam = new Human("Adam");<br/>	Human *eve = new Human("Eve");<br/>	adam->setIsMale(true);<br/>	eve->setIsMale(false);<br/>	traceHuman(adam, std::cout);<br/>	traceHuman(eve, std::cout);<br/>	std::cout <<span></span><<span></span> endl;<br/><br/>	humans.push_back(adam);<br/>	humans.push_back(eve);<br/><br/><br/>	for (int i = 0 ; i <<span></span> birth_count ; i++){<br/><br/>		Human *baby = new Human(<br/>				getRandName(),<br/>				*humans[rand() % humans.size()],<br/>				*humans[rand() % humans.size()]<br/>			);<br/><br/>		humans.push_back(baby);<br/><br/>		while (humans.size() > pop_limit)<br/>		{<br/>			humans.erase(humans.begin()); // Oldest dies off.<br/>		}<br/>	}<br/><br/>	std::cout <<span></span><<span></span> "This is the final population (" <<span></span><<span></span> birth_count <<span></span><<span></span> " generations, " <<span></span><<span></span> pop_limit <<span></span><<span></span> " people): " <<span></span><<span></span> endl;<br/>	for (int i = 0 ; i <<span></span> humans.size() ; i++)<br/>	{<br/>		traceHuman(humans[i], std::cout);<br/>	}<br/><br/><br/>	return 0;<br/>}
+</div>
+
+<h2>Headers</h2>
+
+<div class="result">
+<h3>Human.hxx</h3>
+	#pragma once<br/><br/>#include <<span></span>Human.hxx><br/>#include <<span></span>HumanGenome.hxx><br/>#include <<span></span>iostream><br/><br/>using namespace std;<br/><br/><br/>class Human : protected HumanGenome<br/>{<br/>	string _name;<br/><br/><br/>public:<br/>	Human(string name);<br/>	Human(string name, Human &parent1, Human &parent2);<br/>	string getName();<br/><br/><br/>double getHeight()<br/>{<br/>	return geneticHeight->get();<br/>}<br/>double getWeight()<br/>{<br/>	return geneticWeight->get();<br/>}<br/>double getEyecolor()<br/>{<br/>	return eyeColor->get();<br/>}<br/>double getHaircolor()<br/>{<br/>	return haircolor->get();<br/>}<br/>bool isMale()<br/>{<br/>	char got = gender->get() >> 7;<br/>	return got == 0 ? false : true;<br/>}<br/><br/>void setHeight(double height)<br/>{<br/>	geneticHeight->set(height);<br/>}<br/>void setWeight(double weight)<br/>{<br/>	geneticWeight->set(weight);<br/>}<br/>void setEyecolor(double color)<br/>{<br/>	eyeColor->set(color);<br/>}<br/>void setHaircolor(double color)<br/>{<br/>	haircolor->set(color);<br/>}<br/>void setIsMale(bool value)<br/>{<br/>	gender->set(value ? 0xFF : 0x00);<br/>}<br/><br/><br/>};
+</div>
+
+<div class="result">
+	<h3>HumanGenome</h3>
+	#pragma once<br/><br/>#include "Genome.hxx"<br/>#include "GeneEncapsulator.hxx"<br/>#include <<span></span>string><br/><br/>using namespace std;<br/><br/>class HumanGenome : protected Genome{<br/>protected:<br/><br/>	GeneEncapsulator<unsigned char> *gender;<br/>	GeneEncapsulator<unsigned char> *eyeColor;<br/>	GeneEncapsulator<unsigned char> *haircolor;<br/>	GeneEncapsulator<unsigned char> *geneticHeight;<br/>	GeneEncapsulator<unsigned char> *geneticWeight;<br/>	<br/>	void allocateGenes();<br/><br/>	HumanGenome(string dna1, string dna2);<br/>	HumanGenome();<br/>};
+	</div>
+
+<div class="result">
+	<h3>Genome.hxx</h3>
+	#pragma once<br/><br/>#include <<span></span>iostream><br/>#include <<span></span>vector><br/><br/>#include "GeneEncapsulator.hxx"<br/>#include <<span></span>string><br/>#include <<span></span>sstream><br/><br/>class Genome<br/>{<br/>private:<br/>	int allocate(size_t size);<br/><br/>protected:<br/>	std::vector<<span></span>unsigned char> genes;<br/>	<br/>public:<br/>	template <<span></span>class T><br/>	GeneEncapsulator<<span></span>T> add()<br/>	{<br/>		int offset = allocate(sizeof(T));<br/>		return GeneEncapsulator<<span></span>T>(&genes, offset);<br/>	};<br/><br/>	std::string getGenomeAsString()<br/>	{<br/>		std::stringstream s;<br/>		for (unsigned char gene : genes)<br/>			s <<span></span><<span></span> gene;<br/>		return s.str();<br/>}<br/><br/>protected:<br/>	void initializeByCrossover(std::string dna1, std::string dna2);<br/><br/><br/>};
+</div>
+
+<h2>Source files</h2>
+
+<div class="result">
+	<h3>Human.cxx</h3>
+	#include "Human.hxx"<br/>#include <<span></span>stdlib.h><br/>#include <<span></span>iostream><br/><br/>Human::Human(string name) : _name(name)<br/>{<br/>	bool f= (rand()%0xff) <<span></span> 0x7F;<br/>	setIsMale(f);<br/>	setEyecolor(rand()%255);<br/>	setHaircolor(rand()%255);<br/>	setHeight(rand()%100 + 125);<br/>	setWeight(rand()%100 + 35);<br/>}<br/><br/>Human::Human(string name, Human &parent1, Human &parent2) : _name(name)<br/>{<br/>//	if (parent1.isMale() == parent2.isMale()) // if same gender<br/>//		cout <<span></span><<span></span> "That's biologically impossible, but <br/>// this is a computer program so who cares?" <<span></span><<span></span> endl;<br/><br/>	initializeByCrossover(parent1.getGenomeAsString(), parent2.getGenomeAsString());<br/>	int seed;<br/><br/>	for (int i = 0 ; i <<span></span> genes.size() ; i++)<br/>	{<br/>		seed = rand() % 25500; // 4 percent change of mutation for each gene<br/>		if (seed <<span></span> 255)<br/>		{<br/>			char mutation = (char)seed;<br/>			mutation++; // So it has only one 1 in it's binary decimals, rest is 0.<br/>			genes[i] += mutation;<br/>		}<br/>	}<br/>}<br/><br/>string Human::getName()<br/>{<br/>	return _name;<br/>}<br/>
+</div>
+
+<div class="result">
+	<h3>HumanGenome.cxx</h3>
+	#include "HumanGenome.hxx"<br/><br/>HumanGenome::HumanGenome(string dna1, string dna2)<br/>{<br/>	allocateGenes();<br/>	initializeByCrossover(dna1, dna2);<br/>}<br/><br/>HumanGenome::HumanGenome()<br/>{<br/>	allocateGenes();<br/>}<br/><br/>void HumanGenome::allocateGenes(){<br/>	gender = new GeneEncapsulator<unsigned char>(NULL, 0);<br/>	*gender = add<unsigned char>();<br/><br/>	eyeColor = new GeneEncapsulator<unsigned char>(NULL, 0);<br/>	*eyeColor = add<unsigned char>();<br/><br/>	haircolor = new GeneEncapsulator<unsigned char>(NULL, 0);<br/>	*haircolor = add<unsigned char>();<br/><br/>	geneticHeight = new GeneEncapsulator<unsigned char>(NULL, 0);<br/>	*geneticHeight = add<unsigned char>();<br/><br/>	geneticWeight = new GeneEncapsulator<unsigned char>(NULL, 0);<br/>	*geneticWeight = add<unsigned char>();<br/>}
+</div>
+
+<div class="result">
+	<h3>Genome.cxx</h3>
+	#include "Genome.hxx"<br/>#include <<span></span>stdlib.h><br/><br/>using namespace std;<br/><br/>int Genome::allocate(size_t size){<br/>	int position = genes.size();<br/>	while(size-- > 0)<br/>	{<br/>		genes.push_back((unsigned char)0);<br/>	}<br/>	return position;<br/>}<br/><br/><br/>void Genome::initializeByCrossover(std::string dna1, std::string dna2){<br/>	for (int i = 0 ; i < genes.size() ; i++)<br/>	{<br/>		unsigned char seed  = (unsigned char)(rand() % 255);<br/><br/>		genes[i] = (unsigned char)(dna1[i] & seed) + <br/>					(unsigned char)(dna2[i] & (~seed));<br/>	}<br/>}
+</div>
+
+</div>
+</div>
+</body>
+</html>

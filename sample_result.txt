@@ -1,0 +1,105 @@
+$ ./sampler 10000 100
+Adam       (Male  ) 183cm 	65kg
+Eve        (Female) 148cm 	44kg
+
+This is the final population (10000 generations, 100 people): 
+Darren     (Male  ) 203cm 	196kg
+Alfric     (Male  ) 146cm 	84kg
+Snowdon    (Female) 163cm 	68kg
+Smithies   (Male  ) 194cm 	132kg
+Darren     (Male  ) 139cm 	132kg
+Robbins    (Male  ) 137cm 	8kg
+Harrington (Male  ) 139cm 	196kg
+Harrington (Female) 139cm 	228kg
+Alfric     (Male  ) 139cm 	128kg
+Robbins    (Male  ) 147cm 	196kg
+Darren     (Male  ) 91cm 	4kg
+Robbins    (Female) 155cm 	204kg
+Smithies   (Male  ) 163cm 	194kg
+Gabriel    (Male  ) 147cm 	68kg
+Snowdon    (Male  ) 130cm 	212kg
+Smithies   (Male  ) 182cm 	204kg
+Snowdon    (Male  ) 59cm 	168kg
+Huxley     (Male  ) 137cm 	12kg
+Snowdon    (Female) 202cm 	212kg
+Smithies   (Male  ) 139cm 	204kg
+Robbins    (Male  ) 91cm 	68kg
+Harrington (Male  ) 138cm 	204kg
+Darren     (Male  ) 202cm 	196kg
+Crawford   (Female) 203cm 	196kg
+Clare      (Male  ) 203cm 	132kg
+Gabriel    (Female) 195cm 	128kg
+Huxley     (Male  ) 203cm 	196kg
+Crawford   (Male  ) 155cm 	0kg
+Gabriel    (Male  ) 217cm 	230kg
+Alfric     (Female) 190cm 	76kg
+Darren     (Male  ) 139cm 	196kg
+Gabriel    (Male  ) 123cm 	108kg
+Darren     (Female) 203cm 	204kg
+Smithies   (Male  ) 249cm 	78kg
+Gabriel    (Female) 147cm 	228kg
+Harrington (Male  ) 146cm 	196kg
+Harrington (Male  ) 131cm 	132kg
+Harrington (Male  ) 71cm 	236kg
+Crawford   (Female) 135cm 	204kg
+Robbins    (Male  ) 131cm 	192kg
+Alfric     (Male  ) 137cm 	138kg
+Clare      (Male  ) 210cm 	108kg
+Gabriel    (Male  ) 139cm 	192kg
+Smithies   (Male  ) 139cm 	128kg
+Gabriel    (Male  ) 221cm 	102kg
+Darren     (Male  ) 79cm 	132kg
+Crawford   (Male  ) 187cm 	204kg
+Robbins    (Male  ) 138cm 	128kg
+Snowdon    (Male  ) 207cm 	228kg
+Smithies   (Male  ) 195cm 	192kg
+Robbins    (Male  ) 171cm 	204kg
+Clare      (Female) 139cm 	224kg
+Darren     (Male  ) 11cm 	200kg
+Alfric     (Male  ) 203cm 	196kg
+Snowdon    (Male  ) 179cm 	204kg
+Alfric     (Male  ) 201cm 	72kg
+Robbins    (Female) 131cm 	192kg
+Crawford   (Male  ) 91cm 	68kg
+Snowdon    (Male  ) 153cm 	44kg
+Smithies   (Male  ) 139cm 	136kg
+Alfric     (Male  ) 146cm 	192kg
+Darren     (Female) 40cm 	196kg
+Crawford   (Male  ) 203cm 	204kg
+Crawford   (Female) 218cm 	128kg
+Huxley     (Male  ) 198cm 	132kg
+Robbins    (Female) 131cm 	196kg
+Snowdon    (Female) 118cm 	224kg
+Alfric     (Male  ) 219cm 	228kg
+Huxley     (Male  ) 255cm 	70kg
+Harrington (Male  ) 131cm 	140kg
+Alfric     (Female) 147cm 	196kg
+Darren     (Male  ) 75cm 	200kg
+Robbins    (Male  ) 147cm 	196kg
+Smithies   (Female) 203cm 	128kg
+Robbins    (Female) 131cm 	128kg
+Darren     (Male  ) 104cm 	132kg
+Darren     (Male  ) 139cm 	196kg
+Darren     (Male  ) 139cm 	196kg
+Smithies   (Female) 127cm 	164kg
+Gabriel    (Female) 91cm 	76kg
+Snowdon    (Male  ) 163cm 	68kg
+Crawford   (Female) 195cm 	112kg
+Gabriel    (Male  ) 203cm 	164kg
+Clare      (Male  ) 91cm 	236kg
+Clare      (Male  ) 219cm 	228kg
+Smithies   (Male  ) 207cm 	204kg
+Darren     (Male  ) 27cm 	204kg
+Crawford   (Female) 203cm 	196kg
+Crawford   (Male  ) 11cm 	196kg
+Clare      (Male  ) 91cm 	68kg
+Gabriel    (Male  ) 91cm 	64kg
+Clare      (Male  ) 138cm 	192kg
+Huxley     (Male  ) 207cm 	68kg
+Gabriel    (Male  ) 139cm 	192kg
+Snowdon    (Male  ) 203cm 	192kg
+Smithies   (Male  ) 155cm 	192kg
+Crawford   (Female) 72cm 	212kg
+Clare      (Male  ) 235cm 	206kg
+Crawford   (Male  ) 147cm 	64kg
+Robbins    (Female) 202cm 	224kg

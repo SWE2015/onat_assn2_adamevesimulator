@@ -136,6 +136,7 @@ thus more generations.  </p>
 <tr><td>Robbins</td><td>(Female)</td><td>202cm</td><td>224kg</tr></tr>
 </table>
 
+</div>
 
 <h1>Sourcecode: </h1>
 
@@ -154,7 +155,7 @@ thus more generations.  </p>
 </div>
 
 <div class="result">
-	<h3>HumanGenome</h3>
+	<h3>HumanGenome.hxx</h3>
 	#pragma once<br/><br/>#include "Genome.hxx"<br/>#include "GeneEncapsulator.hxx"<br/>#include <<span></span>string><br/><br/>using namespace std;<br/><br/>class HumanGenome : protected Genome{<br/>protected:<br/><br/>	GeneEncapsulator<unsigned char> *gender;<br/>	GeneEncapsulator<unsigned char> *eyeColor;<br/>	GeneEncapsulator<unsigned char> *haircolor;<br/>	GeneEncapsulator<unsigned char> *geneticHeight;<br/>	GeneEncapsulator<unsigned char> *geneticWeight;<br/>	<br/>	void allocateGenes();<br/><br/>	HumanGenome(string dna1, string dna2);<br/>	HumanGenome();<br/>};
 	</div>
 
@@ -180,7 +181,6 @@ thus more generations.  </p>
 	#include "Genome.hxx"<br/>#include <<span></span>stdlib.h><br/><br/>using namespace std;<br/><br/>int Genome::allocate(size_t size){<br/>	int position = genes.size();<br/>	while(size-- > 0)<br/>	{<br/>		genes.push_back((unsigned char)0);<br/>	}<br/>	return position;<br/>}<br/><br/><br/>void Genome::initializeByCrossover(std::string dna1, std::string dna2){<br/>	for (int i = 0 ; i < genes.size() ; i++)<br/>	{<br/>		unsigned char seed  = (unsigned char)(rand() % 255);<br/><br/>		genes[i] = (unsigned char)(dna1[i] & seed) + <br/>					(unsigned char)(dna2[i] & (~seed));<br/>	}<br/>}
 </div>
 
-</div>
 </div>
 </body>
 </html>
